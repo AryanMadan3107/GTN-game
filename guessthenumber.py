@@ -15,7 +15,9 @@ def guess():
     global attempts
     attempts+=1
     inputnumber=int(guessentry.get())
-    if inputnumber==randomnumber:
+    if inputnumber<1 or inputnumber>20:
+        messagebox.showinfo("To high or to low", "Your answer must be in between 1-20. Guess again!")
+    elif inputnumber==randomnumber:
         messagebox.showinfo("Correct", "Your answer is correct!")
         guessbutton.config(state="disabled")
         attemptstxt.config(text="You took "+ str(attempts) + " attempts in total to guess the right number")
